@@ -1,0 +1,36 @@
+﻿<Window x:Class="ProyectoFinalI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoFinalI"
+        mc:Ignorable="d"
+        Title="Inicio" Height="450" Width="400"
+        WindowStartupLocation="CenterScreen" >
+
+    <Window.Resources>
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="LightBlue"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/GolfAdminAce.jpeg"/>
+        </Grid.Background>
+        <Button Content="Iniciar" HorizontalAlignment="Center" Height="60" Margin="0,334,0,0" VerticalAlignment="Top" Width="130" Background="{x:Null}" Foreground="#FFC6A643" FontWeight="Bold" FontSize="36" Click="Button_Click" />
+        <Label Content="     Bienvenido" HorizontalAlignment="Center" Height="69" Margin="0,10,0,0" VerticalAlignment="Top" Width="400" Foreground="#FFFBFBFB" Background="#FF2F2F2F" FontSize="48"/>
+
+    </Grid>
+</Window>

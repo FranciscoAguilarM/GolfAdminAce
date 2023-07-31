@@ -1,0 +1,27 @@
+﻿<Window x:Class="ProyectoFinalI.Vista.AgregarEmpleado"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoFinalI.Vista"
+        mc:Ignorable="d"
+        Title="AgregarEmpleado" Height="650" Width="590" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Vista/exagonobland.jpeg"/>
+        </Grid.Background>
+        <Label Content="Registrar Empleado." HorizontalAlignment="Center" Height="91" VerticalAlignment="Top" Width="590" Background="#FF2F2F2F" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24" FontFamily="Segoe UI Historic" Margin="0,1,0,0" Foreground="#FFF6F6F6" FontWeight="Bold"/>
+        <Label Content="Nombre" HorizontalAlignment="Left" Height="40" Margin="129,106,0,0" VerticalAlignment="Top" Width="170" FontSize="20" FontWeight="Bold" Foreground="#FF2F2F2F"/>
+        <TextBox x:Name="Nombre" HorizontalAlignment="Left" Height="48" Margin="129,151,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="210" Background="{x:Null}" Foreground="#FF2F2F2F" FontSize="20" RenderTransformOrigin="0.5,0.5"></TextBox>
+        <Label Content="Apellido" HorizontalAlignment="Left" Height="40" Margin="129,202,0,0" VerticalAlignment="Top" Width="170" FontSize="20" FontWeight="Bold" Foreground="#FF2F2F2F"/>
+        <TextBox x:Name="Apellido" HorizontalAlignment="Left" Height="48" Margin="129,233,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="210" Background="{x:Null}" Foreground="#FF2F2F2F" FontSize="20"/>
+        <Label Content="Usuario" HorizontalAlignment="Left" Height="40" Margin="135,281,0,0" VerticalAlignment="Top" Width="170" FontSize="20" FontWeight="Bold" Foreground="#FF2F2F2F"/>
+        <TextBox x:Name="Usuario" HorizontalAlignment="Left" Height="48" Margin="129,315,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="210" Background="{x:Null}" Foreground="#FF2F2F2F" FontSize="20"/>
+        <Label Content="Password" HorizontalAlignment="Left" Height="40" Margin="135,367,0,0" VerticalAlignment="Top" Width="170" FontSize="20" FontWeight="Bold" Foreground="#FF2F2F2F"/>
+        <TextBox x:Name="Contrasena" HorizontalAlignment="Left" Height="48" Margin="129,410,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="216" Background="{x:Null}" Foreground="#FF2F2F2F" FontSize="20"/>
+        <Button x:Name="Agregar" Content="Aceptar" HorizontalAlignment="Left" Height="65" Margin="74,534,0,0" VerticalAlignment="Top" Width="131" FontSize="20" Background="#FFFFCB74" FontWeight="Bold" Click="Agregar_Click" />
+        <Button x:Name="Cancel" Content="Cancel" HorizontalAlignment="Left" Height="65" Margin="315,534,0,0" VerticalAlignment="Top" Width="175" FontSize="20" FontWeight="Bold" Background="#FFFFCB74" Click="Cancel_Click" />
+        <Label x:Name="Error" Content="" HorizontalAlignment="Center" Height="72" Margin="0,457,0,0" VerticalAlignment="Top" Width="570" FontSize="20" FontWeight="Bold" Foreground="#FF2F2F2F" Background="{x:Null}"/>
+
+    </Grid>
+</Window>

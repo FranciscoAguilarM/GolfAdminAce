@@ -1,0 +1,180 @@
+﻿<Window x:Class="ProyectoFinalI.Vista.VentanaEmpleado"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoFinalI.Vista"
+        mc:Ignorable="d"
+        Title="VentanaEmpleado" Height="450" Width="850" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style x:Key="TabItemHeaderStyle" TargetType="TabItem">
+            <Setter Property="HeaderTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" FontWeight="Bold" FontSize="16"/>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Background" Value="#FFFFCB74"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+        <Style x:Key="DataGridCellStyle" TargetType="DataGridCell">
+            <Style.Triggers>
+                <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                    <Setter Property="Background" Value="#FFFFCB74"/>
+                </Trigger>
+                <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                    <Setter Property="Background" Value="#FFFFCB74"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="DataGridColumnStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="Background" Value="#FFFFCB74"/>
+            <Setter Property="Foreground" Value="black"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+        <Style x:Key="BotonActivoStyle" TargetType="Button">
+
+            <Setter Property="Width" Value="45"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Background" Value="DarkSeaGreen"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Content" Value="Activo"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="1" CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <TabControl>
+            <TabItem Header="Asignar Carritos"  Style="{StaticResource TabItemHeaderStyle}" Margin="520,143,-524,-145">
+                <Grid Margin="2,0,-2,0" Height="391">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="45*"/>
+                        <ColumnDefinition Width="749*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.Background>
+                        <ImageBrush ImageSource="/Vista/exagonobland.jpeg"/>
+                    </Grid.Background>
+
+                    <DataGrid x:Name="DataGridUserTable3" Height="250" Width="614" Background="{x:Null}" BorderBrush="black" Margin="143,142,0,0" HorizontalContentAlignment="Center" AutoGenerateColumns="false" CanUserAddRows="false" IsReadOnly="True" ColumnWidth="*" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ModeloA"  Binding="{Binding MatriculaCarrito}" Width="100" HeaderStyle="{StaticResource DataGridColumnStyle}" CellStyle="{StaticResource DataGridCellStyle}"/>
+                            <DataGridTextColumn Header="Nombre Miembro"  Binding="{Binding NombreMiembro}" Width="200" HeaderStyle="{StaticResource DataGridColumnStyle}" CellStyle="{StaticResource DataGridCellStyle}"/>
+                            <DataGridTextColumn Header="Nombre Empleado"  Binding="{Binding nombreEmpleado}" Width="200" HeaderStyle="{StaticResource DataGridColumnStyle}" CellStyle="{StaticResource DataGridCellStyle}" />
+                            <DataGridTemplateColumn Header="Editar" HeaderStyle="{StaticResource DataGridColumnStyle}" CellStyle="{StaticResource DataGridCellStyle}">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="Editar" Click="Button_Click_2" Style="{StaticResource BotonActivoStyle}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Label Content="Numero Matricula" HorizontalAlignment="Left" Height="30" Margin="6,91,0,0" VerticalAlignment="Top" Width="148" FontSize="16" FontFamily="Malgun Gothic Semilight" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="ModeloA" HorizontalAlignment="Left" Height="30" Margin="9,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" BorderThickness="0,0,0,1" BorderBrush="Black" FontSize="15" FontFamily="Gadugi" Background="{x:Null}" Grid.ColumnSpan="2"/>
+                    <Label Content="Nombre Miembro:" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="144" FontSize="15" FontFamily="Malgun Gothic Semilight" Margin="8,158,0,0" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="NomM" HorizontalAlignment="Left" Height="30" Margin="6,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" BorderThickness="0,0,0,1" BorderBrush="Black" FontSize="15" FontFamily="Gadugi" Background="{x:Null}" Grid.ColumnSpan="2"/>
+                    <Label Content="Nombre Empleado:" HorizontalAlignment="Left" Height="30" Margin="10,224,0,0" VerticalAlignment="Top" Width="146" FontSize="15" FontFamily="Malgun Gothic Semilight" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="NomEmp" HorizontalAlignment="Left" Height="30" Margin="8,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" BorderThickness="0,0,0,1" BorderBrush="Black" FontSize="15" FontFamily="Gadugi" Background="{x:Null}" Grid.ColumnSpan="2"/>
+                    <Button x:Name="BtnAgregar1" Content="Agregar" HorizontalAlignment="Right" Height="49" Margin="0,327,754,0" VerticalAlignment="Top" Width="80" BorderBrush="{x:Null}" Background="#FFFFCB74" Click="BtnAgregar1_Click" Grid.ColumnSpan="2" />
+                    <Label Content="Empleado" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="60" Margin="0,-12,0,0" VerticalAlignment="Top" Width="788" Background="#FF2F2F2F" Foreground="#FFEFECEC" FontSize="22" FontWeight="Bold"/>
+                    <Button Content="Salir" Margin="0,327,669,15" Background="#FFC73232" Grid.Column="1" HorizontalAlignment="Right" Width="80" Click="Button_Click_3"/>
+                    <Label x:Name="Error" Content="" HorizontalAlignment="Left" Height="48" Margin="132,54,0,0" VerticalAlignment="Top" Width="300" FontSize="20" FontWeight="Bold" Foreground="#FF2F2F2F" Grid.Column="1"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Miembros Del Culb" Style="{StaticResource TabItemHeaderStyle}" Margin="54,142,-58,-144">
+                <Grid Height="409">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="/Vista/exagonobland.jpeg"/>
+                    </Grid.Background>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="167*"/>
+                        <ColumnDefinition Width="627*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="DataGridUserTable1" Height="250" Width="628" Background="{x:Null}" BorderBrush="black" HorizontalContentAlignment="Center" AutoGenerateColumns="false" CanUserAddRows="false" IsReadOnly="True" ColumnWidth="*" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="16,143,0,0" Grid.Column="1">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Matricula" Binding="{Binding PkMiembro}" HeaderStyle="{StaticResource DataGridColumnStyle}" CellStyle="{StaticResource DataGridCellStyle}"/>
+                            <DataGridTextColumn Header="Nombre"  Binding="{Binding Nombre}" HeaderStyle="{StaticResource DataGridColumnStyle}" CellStyle="{StaticResource DataGridCellStyle}"/>
+                            <DataGridTextColumn Header="Apellido"  Binding="{Binding Apellido}" HeaderStyle="{StaticResource DataGridColumnStyle}" CellStyle="{StaticResource DataGridCellStyle}"/>
+                            <DataGridTemplateColumn Header="Editar" HeaderStyle="{StaticResource DataGridColumnStyle}" CellStyle="{StaticResource DataGridCellStyle}">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="Editar" Click="Button_Click"  Style="{StaticResource BotonActivoStyle}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Label Content="Nombre:" HorizontalAlignment="Left" Height="30" Margin="30,117,0,0" VerticalAlignment="Top" Width="78" FontSize="16" FontFamily="Malgun Gothic Semilight"/>
+                    <TextBox x:Name="TxtNombre" HorizontalAlignment="Left" Height="30" Margin="9,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" BorderThickness="0,0,0,1" BorderBrush="Black" FontSize="15" FontFamily="Gadugi" Background="{x:Null}"/>
+                    <Label Content="Apellido:" HorizontalAlignment="Left" Height="30" VerticalAlignment="Center" Width="94" FontSize="15" FontFamily="Malgun Gothic Semilight" Margin="38,0,0,0"/>
+                    <TextBox x:Name="TxtApellido" HorizontalAlignment="Left" Height="30" Margin="6,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" BorderThickness="0,0,0,1" BorderBrush="Black" FontSize="15" FontFamily="Gadugi" Background="{x:Null}"/>
+                    <Button x:Name="BtnAgregar3" Content=" Agregar" HorizontalAlignment="Left" Height="49" Margin="0,327,0,0" VerticalAlignment="Top" Width="80" BorderBrush="{x:Null}"  Background="#FFFFCB74" Click="BtnAgregar3_Click" />
+                    <Label Content="Empleado" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="788" Background="#FF2F2F2F" FontSize="20" Foreground="#FFF1E7E7" FontWeight="Bold"/>
+                    <Button Content="Salir" Margin="85,327,13,33" Background="#FFC72222" Click="Button_Click_5"/>
+                    <Label x:Name="Error2" Content="" HorizontalAlignment="Left" Height="45" Margin="9,63,0,0" VerticalAlignment="Top" Width="300" FontSize="20" FontWeight="Bold" Foreground="#FF2F2F2F" Grid.Column="1"/>
+
+                </Grid>
+
+            </TabItem>
+            <TabItem Header="Carritos Del Culb" Style="{StaticResource TabItemHeaderStyle}" Margin="63,142,-63,-144">
+                <Grid>
+                    <Grid.Background>
+                        <ImageBrush ImageSource="/Vista/exagonobland.jpeg"/>
+                    </Grid.Background>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="197*"/>
+                        <ColumnDefinition Width="647*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="DataGridUserTable2" Height="250" Width="632" Background="{x:Null}" BorderBrush="black" HorizontalContentAlignment="Center" AutoGenerateColumns="false" CanUserAddRows="false" IsReadOnly="True" ColumnWidth="*" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,144,0,0" Grid.Column="1">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Matricula" Binding="{Binding PkMatricula}" Width="75" HeaderStyle="{StaticResource DataGridColumnStyle}" CellStyle="{StaticResource DataGridCellStyle}"/>
+                            <DataGridTextColumn Header="Modelo"  Binding="{Binding Modelo}" Width="150" HeaderStyle="{StaticResource DataGridColumnStyle}" CellStyle="{StaticResource DataGridCellStyle}"/>
+                            <DataGridTextColumn Header="Color"  Binding="{Binding Color}" Width="100" HeaderStyle="{StaticResource DataGridColumnStyle}" CellStyle="{StaticResource DataGridCellStyle}"/>
+                            <DataGridTextColumn Header="Observaciones"  Binding="{Binding Observaciones}" Width="200" HeaderStyle="{StaticResource DataGridColumnStyle}" CellStyle="{StaticResource DataGridCellStyle}"/>
+                            <DataGridTemplateColumn Header="Editar" HeaderStyle="{StaticResource DataGridColumnStyle}" CellStyle="{StaticResource DataGridCellStyle}">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="Editar" Click="Button_Click_1" Style="{StaticResource BotonActivoStyle}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Label Content="Modelo:" HorizontalAlignment="Left" Height="30" Margin="30,99,0,0" VerticalAlignment="Top" Width="78" FontSize="16" FontFamily="Malgun Gothic Semilight"/>
+                    <TextBox x:Name="Modelo" HorizontalAlignment="Left" Height="30" Margin="9,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" BorderThickness="0,0,0,1" BorderBrush="Black" FontSize="15" FontFamily="Gadugi" Background="{x:Null}"/>
+                    <Label Content="Color:" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="60" FontSize="15" FontFamily="Malgun Gothic Semilight" Margin="50,179,0,0"/>
+                    <TextBox x:Name="Color" HorizontalAlignment="Left" Height="30" Margin="6,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" BorderThickness="0,0,0,1" BorderBrush="Black" FontSize="15" FontFamily="Gadugi" Background="{x:Null}"/>
+                    <Label Content="Observaciones:" HorizontalAlignment="Center" Height="30" Margin="0,240,0,0" VerticalAlignment="Top" Width="112" FontSize="15" FontFamily="Malgun Gothic Semilight"/>
+                    <TextBox x:Name="Observaciones" HorizontalAlignment="Left" Height="30" Margin="8,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" BorderThickness="0,0,0,1" BorderBrush="Black" FontSize="15" FontFamily="Gadugi" Background="{x:Null}"/>
+                    <Button x:Name="BtnAgregar2" Content=" Agregar" Height="49" Margin="6,329,109,0" VerticalAlignment="Top" BorderBrush="{x:Null}"  Background="#FFFFCB74" Click="BtnAgregar2_Click" />
+                    <Label Content="Empleado" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="60" Margin="0,-14,0,0" VerticalAlignment="Top" Width="788" Background="#FF2F2F2F" FontSize="20" FontWeight="Bold" Foreground="#FFF1E8E8"/>
+                    <Button Content="Salir" Margin="93,329,24,17" Background="#FFD61E1E" Click="Button_Click_4" RenderTransformOrigin="1.164,0.731"/>
+                    <Label x:Name="Error3" Content="" HorizontalAlignment="Left" Height="44" Margin="15,59,0,0" VerticalAlignment="Top" Width="300" FontSize="20" FontWeight="Bold" Foreground="#FF2F2F2F" Grid.Column="1"/>
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
